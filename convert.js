@@ -88,7 +88,7 @@ function handleFiles(files) {
 
     var zip = buf.slice(zipStartOffset, buf.length);
 
-    downloadFile(file.name.replace(".crx", ".zip"), [zip]);
+    downloadFile(file.name.replace(".crx", ".xpi"), [zip]);
   }
   reader.readAsArrayBuffer(file);
 }
