@@ -60,9 +60,6 @@ function handleFiles(files) {
     throw new Error("No files: Expected one file.");
   }
   var file = files[0];
-  if (file.type !== "application/x-chrome-extension") {
-    throw new Error("Invalid file: It is not a Chrome extension.");
-  }
 
   var reader = new FileReader();
   reader.onload = function(e) {
@@ -88,7 +85,7 @@ function handleFiles(files) {
 
     var zip = buf.slice(zipStartOffset, buf.length);
 
-    downloadFile(file.name.replace(".crx", ".zip"), [zip]);
+    downloadFile(file.name.replace(".crx", ".xpi"), [zip]);
   }
   reader.readAsArrayBuffer(file);
 }
